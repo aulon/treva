@@ -26,15 +26,15 @@ class Home extends Component {
 							backgroundColor: "transparent",
 						}}
 					>
-						<H3 style={styles.text}>App to showcase</H3>
+						<H3 style={styles.text}>The World</H3>
 						<View style={{ marginTop: 8 }} />
-						<H3 style={styles.text}>NativeBase components</H3>
+						<H3 style={styles.text}>at the swipe of a finger</H3>
 						<View style={{ marginTop: 8 }} />
 					</View>
 					<View style={{ marginBottom: 80 }}>
 						<Button
-							style={{ backgroundColor: "#6FAF98", alignSelf: "center" }}
-							onPress={() => this.props.navigation.navigate("DrawerOpen")}
+							style={{ backgroundColor: "#5cb85c", alignSelf: "center" }}
+							onPress={() => this.props.navigation.navigate("Start")}
 						>
 							<Text>Lets Go!</Text>
 						</Button>
