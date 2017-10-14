@@ -14,7 +14,6 @@ class Core:
 
     def new_trip(self, trip_length_days: int, n_people: int, min_date: date, max_date: date) -> Destination:
         self.session = Session(trip_length_days, n_people, min_date, max_date)
-
         return self.session.new_destination()
 
     def unlike_destination(self, reason: str) -> Destination:
@@ -31,6 +30,9 @@ class Core:
 
     def unlike_hotel(self, reason: str) -> Hotel:
         return self.session.new_hotel(reason)
+
+    def like_hotel(self) -> Booking:
+        return self.session.complete_booking()
 
     def complete_booking(self) -> Booking:
         self.completed_bookings.append(self.session.complete_booking())
