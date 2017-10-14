@@ -8,19 +8,24 @@ import DatePicker from 'react-native-datepicker';
 export default class MyDatePicker extends Component {
 	constructor(props){
 		super(props);
-		this.state = {date:"2016-05-15"}
+		this.state = {date:"2016-05-15"};
 	}
 
 	render(){
 		return (
 			<DatePicker
-				style={{width: 200}}
+				style={{
+					width: 300,
+					borderColor: '#aaa',
+					borderRadius: 25
+
+				}}
 				date={this.state.date}
 				mode="date"
 				placeholder="select date"
 				format="YYYY-MM-DD"
-				minDate="2016-05-01"
-				maxDate="2016-06-01"
+				minDate="2017-10-01"
+				maxDate="2018-12-31"
 				confirmBtnText="Confirm"
 				cancelBtnText="Cancel"
 				customStyles={{
@@ -33,6 +38,13 @@ export default class MyDatePicker extends Component {
 					dateInput: {
 						marginLeft: 36
 					}
+
+
+
+
+
+
+
 					// ... You can check the source to find the other keys.
 				}}
 				onDateChange={(date) => {this.setState({date: date})}}

@@ -36,15 +36,16 @@ class Start extends Component {
 					<Right />
 
 				</Header>
-				<Image source={launchscreenBg} style={styles.imageContainer}>
-					<View style={styles.logoContainer}>
-						<Image source={launchscreenLogo} style={styles.logo} />
-					</View>
+				{/*<Image source={launchscreenBg} style={styles.imageContainer}>*/}
+					{/*<View style={styles.logoContainer}>*/}
+						{/*<Image source={launchscreenLogo} style={styles.logo} />*/}
+					{/*</View>*/}
 					<View
 						style={{
 							alignItems: "center",
 							marginBottom: 50,
-							backgroundColor: "transparent",
+							backgroundColor: "#F2E1FE",
+							height: "100%"
 						}}
 					>
 						<MyDatePicker />
@@ -61,7 +62,7 @@ class Start extends Component {
 							<Text>Lets Gond!</Text>
 						</Button>
 					</View>
-				</Image>
+				{/*</Image>*/}
 			</Container>
 		);
 	}
