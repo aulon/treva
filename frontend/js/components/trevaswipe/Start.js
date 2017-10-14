@@ -5,7 +5,7 @@
 import React, { Component } from "react";
 import { Image, View, StatusBar } from "react-native";
 
-import { Container, Button, H3, Text, Header, Title, Body, Left, Right } from "native-base";
+import { Container, Button, H3, Text, Header, Icon, Title, Body, Left, Right } from "native-base";
 
 import styles from "./styles";
 import MyDatePicker from "../datepicker";
@@ -18,8 +18,24 @@ class Start extends Component {
 
 	render() {
 		return (
-			<Container>
+			<Container style={styles.container}>
 				<StatusBar barStyle="light-content" />
+				<Header
+					style={{ backgroundColor: "#580095" }}
+					androidStatusBarColor="#580095"
+					iosBarStyle="light-content"
+				>
+					<Left>
+						<Button transparent onPress={() => this.props.navigation.goBack()}>
+							<Icon name="arrow-back" style={{ color: "#FFF" }} />
+						</Button>
+					</Left>
+					<Body>
+					<Title style={{ color: "#FFF" }}>Get Started</Title>
+					</Body>
+					<Right />
+
+				</Header>
 				<Image source={launchscreenBg} style={styles.imageContainer}>
 					<View style={styles.logoContainer}>
 						<Image source={launchscreenLogo} style={styles.logo} />

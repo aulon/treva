@@ -30,5 +30,8 @@ export default {
 		color: "#D8D8D8",
 		bottom: 6,
 		marginTop: 5
+	},
+	mb10: {
+		marginBottom: 10
 	}
 };
