@@ -1,7 +1,8 @@
+from backend.data import *
 
 class Session:
     """
-        the booking sesssion, create initally or after finishing one booking
+        the booking sesssion, created initally or after finishing one booking
     """
 
     def __init__(self, trip_length, n_people, min_date, max_date):
@@ -10,13 +11,13 @@ class Session:
         self.hotels = []
         self.n_people = n_people
         self.min_date = min_date
-        self.max_daye = max_date
+        self.max_date = max_date
         self.trip_length = trip_length
 
     def new_destination(self, reason: str=None) -> Destination:
         if not reason:
             # first, generate random
-            self.destinations.append(Destination("Country", "City", 100, 200, 'January', 'img://url'))
+            self.destinations.append(Destination("Country", "City", 100, 200, 'img://url'))
         else:
             # look in history and filter
             pass
@@ -42,5 +43,14 @@ class Session:
 
     def complete_booking(self):
         #complete booking from last destination, flight and hotel
+        return Booking(self.destinations[-1], self.flights[-1], self.hotels[-1])
 
-        pass
+    def reset_booking(self):
+        self.destinations = []
+        self.flights = []
+        self.hotels = []
+
+    def reset_booking_to_destination(self):
+        self.destinations.pop()
+        self.flights = []
+        self.hotels = []
