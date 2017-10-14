@@ -1,12 +1,11 @@
-from abc import ABCMeta, abstractmethod
+from abc import ABCMeta
 import json
 
 class Serializable:
     __metaclass__ = ABCMeta
 
     def to_json(self):
-        return json.dumps(self, default=lambda o: o.__dict__,
-                          sort_keys=True, indent=4)
+        return json.dumps(self, default=lambda o: o.__dict__, sort_keys=True, indent=4)
 
 class Destination(Serializable):
     def __init__(self, country, city, min_price, max_price, month, img_url):
@@ -33,4 +32,10 @@ class Hotel(Serializable):
         self.price = price
         self.facilities = facilities
 
+
+class Booking(Serializable):
+    def __init__(self, destination, flight, hotel):
+        self.destination = destination
+        self.flight = flight
+        self.hotel = hotel
 
