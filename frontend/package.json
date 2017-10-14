@@ -4,6 +4,7 @@
 	"private": true,
 	"devDependencies": {
 		"jest": "20.0.4",
+		"react-native-cli": "^2.0.1",
 		"react-test-renderer": "16.0.0-alpha.13"
 	},
 	"scripts": {
@@ -22,8 +23,8 @@
 		"color": "~1.0.3",
 		"lodash": "^4.13.1",
 		"native-base": "2.3.1",
-		"react": "^16.0.0",
-		"react-native": "0.46.4",
+		"react": "16.0.0-alpha.13",
+		"react-native": "^0.49.3",
 		"react-navigation": "1.0.0-beta.11"
 	}
 }
