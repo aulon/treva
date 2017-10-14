@@ -7,6 +7,7 @@ import { Root } from "native-base";
 import { StackNavigator } from "react-navigation";
 
 import Drawer from "./Drawer";
+import Home from "./components/home";
 import Header from "./components/Header/";
 import Header1 from "./components/Header/1";
 import Header2 from "./components/Header/2";
@@ -78,6 +79,8 @@ import IconActionSheet from "./components/actionsheet/icon";
 import AdvSegment from "./components/segment/segmentTab";
 import SimpleDeck from "./components/deckswiper/simple";
 import AdvancedDeck from "./components/deckswiper/advanced";
+import Start from "./components/trevaswipe/Start";
+import MyDatePicker from "./components/datepicker";
 
 const AppNavigator = StackNavigator(
     {
@@ -166,9 +169,13 @@ const AppNavigator = StackNavigator(
 
         RegularActionSheet: { screen: RegularActionSheet },
         IconActionSheet: { screen: IconActionSheet },
+
+        Start: { screen: Start },
+		Home: { screen: Home },
+		MyDatePicker: { screen: MyDatePicker }
     },
     {
-        initialRouteName: "Drawer",
+        initialRouteName: "Home",
         headerMode: "none",
     }
 );

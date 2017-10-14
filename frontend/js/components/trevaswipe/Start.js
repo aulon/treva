@@ -1,14 +1,19 @@
+/*
+ * © 2017 Tal Globus. All Rights Reserved.
+ */
+
 import React, { Component } from "react";
 import { Image, View, StatusBar } from "react-native";
 
 import { Container, Button, H3, Text, Header, Title, Body, Left, Right } from "native-base";
 
 import styles from "./styles";
+import MyDatePicker from "../datepicker";
 
 const launchscreenBg = require("../../../img/launchscreen-bg.png");
 const launchscreenLogo = require("../../../img/logo-kitchen-sink.png");
 
-class Home extends Component {
+class Start extends Component {
 	// eslint-disable-line
 
 	render() {
@@ -26,17 +31,18 @@ class Home extends Component {
 							backgroundColor: "transparent",
 						}}
 					>
-						<H3 style={styles.text}>The World</H3>
-						<View style={{ marginTop: 8 }} />
-						<H3 style={styles.text}>at the swipe of a finger</H3>
-						<View style={{ marginTop: 8 }} />
+						<MyDatePicker />
+						{/*<H3 style={styles.text}>The World</H3>*/}
+						{/*<View style={{ marginTop: 8 }} />*/}
+						{/*<H3 style={styles.text}>at the swipe of a finger</H3>*/}
+						{/*<View style={{ marginTop: 8 }} />*/}
 					</View>
 					<View style={{ marginBottom: 80 }}>
 						<Button
-							style={{ backgroundColor: "#5cb85c", alignSelf: "center" }}
+							style={{ backgroundColor: "#c58bc5", alignSelf: "center" }}
 							onPress={() => this.props.navigation.navigate("Start")}
 						>
-							<Text>Lets Go!</Text>
+							<Text>Lets Gond!</Text>
 						</Button>
 					</View>
 				</Image>
@@ -45,4 +51,4 @@ class Home extends Component {
 	}
 }
 
-export default Home;
+export default Start;
