@@ -50,6 +50,16 @@ class UnlikeHotel(Resource):
         return core.unlike_hotel(reason=request.args.get('reason')).to_json()
 
 
+class CompleteBooking(Resource):
+    def get(self):
+        return core.complete_booking().to_json()
+
+
+class AddBookingToFavorites(Resource):
+    def get(self):
+        return core.add_booking_to_favorites().to_json()
+
+
 api.add_resource(LikeDestination, '/like_destination')
 api.add_resource(UnlikeDestination, '/unlike_destination')
 api.add_resource(NewTrip, '/new_trip')
@@ -57,6 +67,9 @@ api.add_resource(LikeFlight, '/like_flight')
 api.add_resource(UnlikeFlight, '/unlike_flight')
 api.add_resource(LikeHotel, '/like_hotel')
 api.add_resource(UnlikeHotel, '/unlike_hotel')
+api.add_resource(CompleteBooking, '/complete_booking')
+api.add_resource(AddBookingToFavorites, '/add_booking_to_favorites')
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=5050)
