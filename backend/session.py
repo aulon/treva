@@ -11,7 +11,7 @@ class Session:
         self.hotels = []
         self.n_people = n_people
         self.min_date = min_date
-        self.max_daye = max_date
+        self.max_date = max_date
         self.trip_length = trip_length
 
     def new_destination(self, reason: str=None) -> Destination:
