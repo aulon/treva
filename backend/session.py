@@ -17,7 +17,7 @@ class Session:
     def new_destination(self, reason: str=None) -> Destination:
         if not reason:
             # first, generate random
-            self.destinations.append(Destination("Country", "City", 100, 200, 'January', 'img://url'))
+            self.destinations.append(Destination("Country", "City", 100, 200, 'img://url'))
         else:
             # look in history and filter
             pass

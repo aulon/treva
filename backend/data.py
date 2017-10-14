@@ -8,14 +8,12 @@ class Serializable:
         return json.dumps(self, default=lambda o: o.__dict__, sort_keys=True, indent=4)
 
 class Destination(Serializable):
-    def __init__(self, country, city, min_price, max_price, month, img_url):
+    def __init__(self, country, city, min_price, max_price, img_url):
         self.country = country
         self.city = city
         self.min_price = min_price
         self.max_price = max_price
-        self.month = month
         self.img_url = img_url
-
 
 class Flight(Serializable):
     def __init__(self, carrier, price, currency, avg_time):
