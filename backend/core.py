@@ -32,5 +32,11 @@ class Core:
     def unlike_hotel(self, reason: str) -> Hotel:
         return self.session.new_hotel(reason)
 
-    def like_hotel(self) -> Booking:
-        return self.session.complete_booking()
+    def complete_booking(self) -> Booking:
+        self.completed_bookings.append(self.session.complete_booking())
+        return self.completed_bookings[-1]
+
+    def add_booking_to_favorites(self) -> Destination:
+        self.favorite_bookings.append(self.session.complete_booking())
+        self.session.reset_booking()
+        return self.session.new_destination()

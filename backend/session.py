@@ -45,5 +45,12 @@ class Session:
         #complete booking from last destination, flight and hotel
         return Booking(self.destinations[-1], self.flights[-1], self.hotels[-1])
 
-    def drop_booking(self):
-        return self.session
+    def reset_booking(self):
+        self.destinations = []
+        self.flights = []
+        self.hotels = []
+
+    def reset_booking_to_destination(self):
+        self.destinations.pop()
+        self.flights = []
+        self.hotels = []
