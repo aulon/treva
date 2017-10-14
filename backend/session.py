@@ -1,7 +1,8 @@
+from backend.data import *
 
 class Session:
     """
-        the booking sesssion, create initally or after finishing one booking
+        the booking sesssion, created initally or after finishing one booking
     """
 
     def __init__(self, trip_length, n_people, min_date, max_date):
@@ -42,5 +43,7 @@ class Session:
 
     def complete_booking(self):
         #complete booking from last destination, flight and hotel
+        return Booking(self.destinations[-1], self.flights[-1], self.hotels[-1])
 
-        pass
+    def drop_booking(self):
+        return self.session

@@ -33,4 +33,4 @@ class Core:
         return self.session.new_hotel(reason)
 
     def like_hotel(self) -> Booking:
-        return None
+        return self.session.complete_booking()
