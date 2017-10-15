@@ -18,7 +18,7 @@ class Session:
         self.city = departure_city
         self.country = departure_country
 
-        self.data_grabber = DataGrabber(self.country, self.city, trip_length, min_date, max_date)
+        self.data_grabber = DataGrabber(self.country, self.city, trip_length, min_date, max_date, self.n_people)
         self.destinations = self.data_grabber.get_destinations()
         self.flights = self.data_grabber.get_flights(self.country, self.city)
         self.hotels = self.data_grabber.get_hotels(self.country, self.city)

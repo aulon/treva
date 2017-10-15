@@ -4,7 +4,7 @@ from datetime import date, timedelta
 import requests
 import json
 
-from data import *
+from backend.data import *
 
 class SkyClient:
 
@@ -81,9 +81,9 @@ class SkyClient:
                 if to_country not in self.country_to_city_price_range:
                     self.country_to_city_price_range[to_country] = {}
                 if to_city not in self.country_to_city_price_range[to_country]:
-                    self.country_to_city_price_range[to_country][to_city] = [2**32, 0]
-                self.country_to_city_price_range[to_country][to_city][0] = min(self.country_to_city_price_range[to_country][to_city][0], 2*quote["MinPrice"])
-                self.country_to_city_price_range[to_country][to_city][1] = max(self.country_to_city_price_range[to_country][to_city][1], 2*quote["MinPrice"])
+                    self.country_to_city_price_range[to_country][to_city] = {"price_range": [2**32, 0]}
+                self.country_to_city_price_range[to_country][to_city]["price_range"][0] = min(self.country_to_city_price_range[to_country][to_city]["price_range"][0], 2*quote["MinPrice"])
+                self.country_to_city_price_range[to_country][to_city]["price_range"][1] = max(self.country_to_city_price_range[to_country][to_city]["price_range"][1], 2*quote["MinPrice"])
 
         # print(json.dumps(self.country_to_city_price_range, indent=2))
 
@@ -121,24 +121,26 @@ class SkyClient:
     def get_flights(trip_length, start_date, end_date, departure_country, departure_city, target_country, target_city):
         return [Flight("lufthansa", 1, "euro", 22.1), Flight("lufthansa", 1, "euro", 22.1), Flight("lufthansa", 1, "euro", 22.1), Flight("lufthansa", 1, "euro", 22.1)]
 
-
-skc = SkyClient()
-# '''
-# res = skc.get_quotes(
-#     departure_country = "SPA",
-#     departure_city = "BCN",
-#     start_date=date(2018, 1, 1),
-#     end_date=date(2018, 1, 3))
 #
-# print(res.keys())
+# skc = SkyClient()
+# # # '''
+# # # res = skc.get_quotes(
+# # #     departure_country = "SPA",
+# # #     departure_city = "BCN",
+# # #     start_date=date(2018, 1, 1),
+# # #     end_date=date(2018, 1, 3))
+# # #
+# # # print(res.keys())
+# #
+#
+# # # skc.get_routes(start_city="BCN", leaving_date="2017-10", returning_date="2017-11")
+# #
+# res = skc.get_trips(
+#     departure_country="Spain",
+#     departure_city="Barcelona",
+#     start_date = date(2018,1,1),
+#     end_date = date(2018,2,1),
+#     trip_length = 20)
+#
+# print(json.dumps(res, indent=2))
 
-# skc.get_routes(start_city="BCN", leaving_date="2017-10", returning_date="2017-11")
-
-res = skc.get_trips(
-    departure_country="Spain",
-    departure_city="Barcelona",
-    start_date = date(2018,1,1),
-    end_date = date(2018,2,1),
-    trip_length = 20)
-
-print(json.dumps(res, indent=2))
