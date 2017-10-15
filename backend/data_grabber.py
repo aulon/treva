@@ -1,6 +1,6 @@
-from backend.sky_client import get_flights, get_trips
 from backend.data import *
 from backend.places_client import get_hotels_and_city_image
+from backend.sky_client import SkyClient
 
 class DataGrabber:
     def __init__(self, country, city, trip_length, min_date, max_date):
@@ -9,7 +9,8 @@ class DataGrabber:
         self.trip_length = trip_length
         self.min_date = min_date
         self.max_date = max_date
-        self.destinations_dataset = get_trips(country, city, trip_length, min_date, max_date)
+        self.skyclient = SkyClient()
+        self.destinations_dataset = self.skyclient.get_trips(country, city, trip_length, min_date, max_date)
         self._prepare()
 
     def _prepare(self):
@@ -49,7 +50,7 @@ class DataGrabber:
         return self.destinations_dataset[country][city]["hotels"]
 
     def _query_flights(self, dest_country, dest_city):
-        return [Flight("lufthansa", 1, "euro", 22.1)]
+        return self.skyclient.get_flights(self.min_date, self.max_date, self.country, self.city, dest_country, dest_city)
 
     def _query_hotels(self, dest_country, dest_city):
         return get_hotels_and_city_image(dest_country, dest_city)

@@ -4,6 +4,8 @@ from datetime import date, timedelta
 import requests
 import json
 
+from backend.data import *
+
 class SkyClient:
 
     def __init__(self, apikey="ha289870274395207127444935114707"):
@@ -99,27 +101,27 @@ class SkyClient:
         return self.country_to_city_price_range
 
 
-    def get_flights(trip_length, start_date, end_date, departure_city, target_city):
-        return [QueryFlight(), QueryFlight(), QueryFlight(), QueryFlight()]
+    def get_flights(trip_length, start_date, end_date, departure_country, departure_city, target_country, target_city):
+        return [Flight("lufthansa", 1, "euro", 22.1), Flight("lufthansa", 1, "euro", 22.1), Flight("lufthansa", 1, "euro", 22.1), Flight("lufthansa", 1, "euro", 22.1)]
 
 
-skc = SkyClient()
-'''
-res = skc.get_quotes(
-    departure_country = "SPA",
-    departure_city = "BCN",
-    start_date=date(2018, 1, 1),
-    end_date=date(2018, 1, 3))
-
-print(res.keys())
-'''
-# skc.get_routes(start_city="BCN", leaving_date="2017-10", returning_date="2017-11")
-
-res = skc.get_trips(
-    departure_country="ES",
-    departure_city="BCN",
-    start_date = date(2018,1,1),
-    end_date = date(2018,2,1),
-    trip_length = 20)
-
-print(json.dumps(res, indent=2))
+# skc = SkyClient()
+# '''
+# res = skc.get_quotes(
+#     departure_country = "SPA",
+#     departure_city = "BCN",
+#     start_date=date(2018, 1, 1),
+#     end_date=date(2018, 1, 3))
+#
+# print(res.keys())
+# '''
+# # skc.get_routes(start_city="BCN", leaving_date="2017-10", returning_date="2017-11")
+#
+# res = skc.get_trips(
+#     departure_country="ES",
+#     departure_city="BCN",
+#     start_date = date(2018,1,1),
+#     end_date = date(2018,2,1),
+#     trip_length = 20)
+#
+# print(json.dumps(res, indent=2))

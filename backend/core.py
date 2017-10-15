@@ -1,8 +1,6 @@
 from datetime import date
 from backend.data import *
 from backend.session import Session
-from backend.sky_client import get_flights, get_trips
-
 
 class Core:
     """
