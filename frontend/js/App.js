@@ -80,7 +80,8 @@ import AdvSegment from "./components/segment/segmentTab";
 import SimpleDeck from "./components/deckswiper/simple";
 import AdvancedDeck from "./components/deckswiper/advanced";
 import Start from "./components/trevaswipe/Start";
-import MyDatePicker from "./components/datepicker";
+import MyDatePicker from "./components/datepicker/index";
+import Swipe from "./components/swipe";
 
 const AppNavigator = StackNavigator(
     {
@@ -172,7 +173,8 @@ const AppNavigator = StackNavigator(
 
         Start: { screen: Start },
 		Home: { screen: Home },
-		MyDatePicker: { screen: MyDatePicker }
+		MyDatePicker: { screen: MyDatePicker },
+		Swipe: { screen: Swipe }
     },
     {
         initialRouteName: "Home",

@@ -2,6 +2,11 @@
  * © 2017 Tal Globus. All Rights Reserved.
  */
 
+/*
+ * © 2017 Tal Globus. All Rights Reserved.
+ */
+
+import styles from './styles';
 import React, { Component } from 'react';
 import DatePicker from 'react-native-datepicker';
 
@@ -14,18 +19,13 @@ export default class MyDatePicker extends Component {
 	render(){
 		return (
 			<DatePicker
-				style={{
-					width: 300,
-					borderColor: '#aaa',
-					borderRadius: 25
-
-				}}
+				style={styles.datePicker}
 				date={this.state.date}
 				mode="date"
 				placeholder="select date"
-				format="YYYY-MM-DD"
-				minDate="2017-10-01"
-				maxDate="2018-12-31"
+				format="DD-MM-YYYY"
+				minDate="01-10-2017"
+				maxDate="31-12-2020"
 				confirmBtnText="Confirm"
 				cancelBtnText="Cancel"
 				customStyles={{

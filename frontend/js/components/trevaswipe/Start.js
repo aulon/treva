@@ -5,10 +5,12 @@
 import React, { Component } from "react";
 import { Image, View, StatusBar } from "react-native";
 
-import { Container, Button, H3, Text, Header, Icon, Title, Body, Left, Right } from "native-base";
+import { Container, Button, H3, Text, Header, Icon, Item, Input, IconNB, Title, Body, Content, Left, Right } from "native-base";
 
 import styles from "./styles";
 import MyDatePicker from "../datepicker";
+import MyPicker from "../numberpicker";
+import Swipe from "../swipe";
 
 const launchscreenBg = require("../../../img/launchscreen-bg.png");
 const launchscreenLogo = require("../../../img/logo-kitchen-sink.png");
@@ -48,19 +50,41 @@ class Start extends Component {
 							height: "100%"
 						}}
 					>
-						<MyDatePicker />
+						<Content padder style={{ paddingTop: 20, height: 180 }}>
+							<Content padder>
+								<Item disabled>
+									<Input disabled placeholder="Barcelona-El Prat Airport, Barcelona, ES" />
+									{/*<IconNB name="ios-information-circle" />*/}
+								</Item>
+							</Content>
+							<Content padder>
+								<Text style={{paddingTop: 10, borderBottomWidth: 0}}>Start Date</Text><MyDatePicker />
+								<Text style={{paddingTop: 10, borderBottomWidth: 0}}>End Date</Text><MyDatePicker />
+								<Text style={{paddingTop: 10, borderBottomWidth: 0}}>Number of People</Text>
+								<Text style={{paddingTop: 10, borderBottomWidth: 0}}>Number of People</Text>
+								<Text style={{paddingTop: 10, borderBottomWidth: 0}}>Number of People</Text>
+								<Text style={{paddingTop: 10, borderBottomWidth: 0}}>Number of People</Text>
+								<Text style={{paddingTop: 10, borderBottomWidth: 0}}>Number of People</Text><MyPicker />
+								<Text style={{paddingTop: 10, borderBottomWidth: 0}}>End Date</Text><MyDatePicker />
+							</Content>
+						</Content>
 						{/*<H3 style={styles.text}>The World</H3>*/}
 						{/*<View style={{ marginTop: 8 }} />*/}
 						{/*<H3 style={styles.text}>at the swipe of a finger</H3>*/}
 						{/*<View style={{ marginTop: 8 }} />*/}
-					</View>
-					<View style={{ marginBottom: 80 }}>
-						<Button
-							style={{ backgroundColor: "#c58bc5", alignSelf: "center" }}
-							onPress={() => this.props.navigation.navigate("Start")}
-						>
-							<Text>Lets Gond!</Text>
-						</Button>
+						<Content padder style={{ paddingTop: 10 }}>
+							{/*<Button block info style={styles.mb15}><Text>Info</Text></Button>*/}
+							<Button block primary style={styles.mb15}
+									onPress={() => this.props.navigation.navigate("Swipe")}>
+									{/*style={{ backgroundColor: "#c58bc5", alignSelf: "center" }}*/}
+									{/*onPress={() => this.props.navigation.navigate("Start")}*/}
+								<Text>Trevaswipe</Text>
+							</Button>
+							{/*<Button block success style={styles.mb15}>*/}
+								{/*<Text>Success</Text>*/}
+							{/*</Button>*/}
+							{/*<Button block dark style={styles.mb15}><Text>Dark</Text></Button>*/}
+						</Content>
 					</View>
 				{/*</Image>*/}
 			</Container>

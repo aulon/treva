@@ -13,13 +13,21 @@ class QueryFlight:
 def get_trips(departure_country, departure_city, trip_length, start_date, end_date):
     return {
         "Spain": {
-            "Barcelona": (300, 500),
-            "Madrid": (200, 500),
+            "Barcelona": {
+                "price_range": (300, 500)
+            },
+            "Madrid": {
+                "price_range": (200, 500)
+            },
         },
 
         "Romania": {
-            "Bucharest": (100, 300),
-            "Sibiu": (100, 200)
+            "Bucharest": {
+                "price_range": (100, 300)
+            },
+            "Sibiu": {
+                "price_range": (100, 200)
+            },
         }
     }
 
