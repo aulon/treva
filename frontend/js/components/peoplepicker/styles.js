@@ -8,7 +8,7 @@ const { StyleSheet } = React;
 
 export default {
 	Picker: {
-		height: 120
+		height: 120,
 		// alignSelf: 'center',
 	},
 

@@ -49,7 +49,7 @@ export default {
 		marginBottom: 20
 	},
 	mt15: {
-		// marginTop: 15,
+		// marginBottom: -280,
 		// width: "80%"
 	},
 	mb20: {

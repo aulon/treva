@@ -13,6 +13,7 @@ import MyPicker from "../numberpicker";
 import Swipe from "../swipe";
 import AirportPicker from "../airportpicker/index";
 import NumberPicker from "../numberpicker/index";
+import PeoplePicker from "../peoplepicker";
 
 const launchscreenBg = require("../../../img/launchscreen-bg.png");
 const launchscreenLogo = require("../../../img/logo-kitchen-sink.png");
@@ -56,7 +57,7 @@ class Start extends Component {
 						{/*<Content padder style={{ paddingTop: 20, height: 50 }}>*/}
 							{/*<Content padder>*/}
 								<Text style={{paddingTop: 10, borderBottomWidth: 0, alignSelf: 'center'}}>Pick Your Point of Origin</Text>
-								<AirportPicker/>
+								<AirportPicker />
 								{/*<Item disabled>*/}
 									{/*<Input disabled placeholder="Barcelona-El Prat Airport, Barcelona, ES" />*/}
 									{/*/!*<IconNB name="ios-information-circle" />*!/*/}
@@ -65,11 +66,11 @@ class Start extends Component {
 							<Content padder>
 								<Text style={{paddingTop: 10, borderBottomWidth: 0}}>Start Date</Text><MyDatePicker />
 								<Text style={{paddingTop: 10, borderBottomWidth: 0}}>End Date</Text><MyDatePicker />
-								{/*<Text style={{paddingTop: 10, borderBottomWidth: 0}}>Number of People</Text>*/}
-								<Text style={{paddingTop: 10, borderBottomWidth: 0}}>Number of People</Text><NumberPicker />
+								<Text style={{paddingTop: 10, borderBottomWidth: 0}}>Length of Trip</Text><PeoplePicker max={80} suffix={" days"} />
+								<Text style={{paddingTop: 10, borderBottomWidth: 0}}>Number of People</Text><PeoplePicker max={8} />
 								{/*<Text style={{paddingTop: 10, borderBottomWidth: 0}}>End Date</Text><MyDatePicker />*/}
 							</Content>
-						<Content padder style={{ paddingTop: 10 }}>
+						{/*<Content padder style={{ paddingTop: 10 }}>*/}
 							{/*<Button block info style={styles.mb15}><Text>Info</Text></Button>*/}
 							<Button block primary style={styles.mb15}
 									onPress={() => this.props.navigation.navigate("Loading", {
@@ -87,7 +88,7 @@ class Start extends Component {
 								{/*<Text>Success</Text>*/}
 							{/*</Button>*/}
 							{/*<Button block dark style={styles.mb15}><Text>Dark</Text></Button>*/}
-						</Content>
+						{/*</Content>*/}
 					</View>
 				{/*</Image>*/}
 			</Container>

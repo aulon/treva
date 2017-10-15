@@ -85,6 +85,7 @@ import Swipe from "./components/swipe";
 import AirportPicker from "./components/airportpicker/index";
 import Loading from "./components/loading";
 import NumberPicker from "./components/numberpicker";
+import PeoplePicker from "./components/peoplepicker";
 
 const AppNavigator = StackNavigator(
     {
@@ -180,7 +181,8 @@ const AppNavigator = StackNavigator(
 		Swipe: { screen: Swipe },
 		AirportPicker: { screen: AirportPicker },
 		Loading: { screen: Loading },
-		NumberPicker: { screen: NumberPicker }
+		NumberPicker: { screen: NumberPicker },
+		PeoplePicker: { screen: PeoplePicker }
     },
     {
         initialRouteName: "Home",
