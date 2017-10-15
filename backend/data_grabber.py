@@ -3,12 +3,13 @@ from backend.places_client import get_hotels_and_city_image
 from backend.sky_client import SkyClient
 
 class DataGrabber:
-    def __init__(self, country, city, trip_length, min_date, max_date):
+    def __init__(self, country, city, trip_length, min_date, max_date, n_people):
         self.country = country
         self.city = city
         self.trip_length = trip_length
         self.min_date = min_date
         self.max_date = max_date
+        self.n_people = n_people
         self.skyclient = SkyClient()
         self.destinations_dataset = self.skyclient.get_trips(country, city, trip_length, min_date, max_date)
         self._prepare()
@@ -22,7 +23,7 @@ class DataGrabber:
                 max_hotel_price = 0
 
                 for h in hotels:
-                    h.price *= self.trip_length
+                    h.price *= self.trip_length*self.n_people
                     if h.price >= max_hotel_price:
                         max_hotel_price = h.price
                     if h.price <= min_hotel_price:
@@ -30,7 +31,8 @@ class DataGrabber:
 
                 if max_hotel_price:
                     s, l = description["price_range"]
-                    description["price_range"] = min_hotel_price + s, max_hotel_price + l
+                    s, l = float(s), float(l)
+                    description["price_range"] = min_hotel_price + s*self.n_people, max_hotel_price + l*self.n_people
 
                 description["flights"] = flights
                 description["hotels"] = hotels
