@@ -44,5 +44,5 @@ class PlacesClient:
 
 
 pc = PlacesClient()
-(lat, lng) = pc.get_location('Barcelona', 'Spain')
+(lat, lng) = pc.get_location('Madrid', 'Spain')
 pc.get_hotels(lat, lng)
