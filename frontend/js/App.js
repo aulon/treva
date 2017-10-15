@@ -84,6 +84,7 @@ import MyDatePicker from "./components/datepicker/index";
 import Swipe from "./components/swipe";
 import AirportPicker from "./components/airportpicker/index";
 import Loading from "./components/loading";
+import NumberPicker from "./components/numberpicker";
 
 const AppNavigator = StackNavigator(
     {
@@ -178,7 +179,8 @@ const AppNavigator = StackNavigator(
 		MyDatePicker: { screen: MyDatePicker },
 		Swipe: { screen: Swipe },
 		AirportPicker: { screen: AirportPicker },
-		Loading: { screen: Loading }
+		Loading: { screen: Loading },
+		NumberPicker: { screen: NumberPicker }
     },
     {
         initialRouteName: "Home",

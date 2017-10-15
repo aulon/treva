@@ -6,7 +6,7 @@ import styles from './styles';
 import React, { Component } from 'react';
 import { View, Text, Picker, StyleSheet } from 'react-native';
 
-class MyPicker extends Component {
+class NumberPicker extends Component {
 	constructor(props) {
 		super();
 		this.state = {user: ''};
@@ -39,7 +39,7 @@ class MyPicker extends Component {
 // 	}
 // });
 
-export default MyPicker;
+export default NumberPicker;
 
 
 
