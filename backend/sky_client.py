@@ -25,7 +25,7 @@ class SkyClient:
         response = response.json()
         for place in response["Places"]:
             #print(place)
-            if start_country == place["CountryId"].split('-')[0]:
+            if start_country == place["CountryName"]:
                 start_city = place["PlaceId"].split('-')[0]
                 break
 
@@ -135,7 +135,7 @@ skc = SkyClient()
 # skc.get_routes(start_city="BCN", leaving_date="2017-10", returning_date="2017-11")
 
 res = skc.get_trips(
-    departure_country="ES",
+    departure_country="Spain",
     departure_city="Barcelona",
     start_date = date(2018,1,1),
     end_date = date(2018,2,1),
