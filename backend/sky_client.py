@@ -4,7 +4,7 @@ from datetime import date, timedelta
 import requests
 import json
 
-from backend.data import *
+from data import *
 
 class SkyClient:
 
@@ -14,7 +14,23 @@ class SkyClient:
         self.start_city = None
         self.country_to_city_price_range = {}
 
-    def get_routes(self, start_city, leaving_date, returning_date):
+    def get_routes(self, start_country, start_city_name, leaving_date, returning_date):
+
+        start_city = None
+        # transform from city name to city sky id.
+        url = "http://partners.api.skyscanner.net/apiservices/autosuggest/v1.0/UK/GBP/en-GB/?query={}&apiKey={}".format(start_city_name, self.apikey)
+        #print(url)
+        response = requests.get(url)
+        #print(response.status_code)
+        response = response.json()
+        for place in response["Places"]:
+            #print(place)
+            if start_country == place["CountryId"].split('-')[0]:
+                start_city = place["PlaceId"].split('-')[0]
+                break
+
+        #print(start_city)
+
 
         url = "http://partners.api.skyscanner.net/apiservices/browseroutes/v1.0/UK/eur/en-US/{}/{}/{}/{}?apikey={}".format(
             start_city,
@@ -94,9 +110,10 @@ class SkyClient:
 
     def get_trips(self, departure_country, departure_city, trip_length, start_date, end_date):
 
+
         for single_date in self.get_date_range(start_date, end_date, trip_length):
             return_date = single_date + timedelta(trip_length)
-            self.get_routes(departure_city, start_date, end_date)
+            self.get_routes(departure_country, departure_city, start_date, end_date)
 
         return self.country_to_city_price_range
 
@@ -105,7 +122,7 @@ class SkyClient:
         return [Flight("lufthansa", 1, "euro", 22.1), Flight("lufthansa", 1, "euro", 22.1), Flight("lufthansa", 1, "euro", 22.1), Flight("lufthansa", 1, "euro", 22.1)]
 
 
-# skc = SkyClient()
+skc = SkyClient()
 # '''
 # res = skc.get_quotes(
 #     departure_country = "SPA",
@@ -114,14 +131,14 @@ class SkyClient:
 #     end_date=date(2018, 1, 3))
 #
 # print(res.keys())
-# '''
-# # skc.get_routes(start_city="BCN", leaving_date="2017-10", returning_date="2017-11")
-#
-# res = skc.get_trips(
-#     departure_country="ES",
-#     departure_city="BCN",
-#     start_date = date(2018,1,1),
-#     end_date = date(2018,2,1),
-#     trip_length = 20)
-#
-# print(json.dumps(res, indent=2))
+
+# skc.get_routes(start_city="BCN", leaving_date="2017-10", returning_date="2017-11")
+
+res = skc.get_trips(
+    departure_country="ES",
+    departure_city="Barcelona",
+    start_date = date(2018,1,1),
+    end_date = date(2018,2,1),
+    trip_length = 20)
+
+print(json.dumps(res, indent=2))
