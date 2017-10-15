@@ -1,8 +1,6 @@
 from datetime import date
 from backend.data import *
 from backend.session import Session
-from backend.sky_client import get_flights, get_trips
-
 
 class Core:
     """
@@ -43,3 +41,6 @@ class Core:
         self.favorite_bookings.append(self.session.complete_booking())
         self.session.reset_booking()
         return self.session.new_destination()
+
+    def back(self):
+        return self.session.back()

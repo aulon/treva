@@ -61,6 +61,14 @@ class AddBookingToFavorites(Resource):
     def get(self):
         return core.add_booking_to_favorites().to_json()
 
+class Back(Resource):
+    def get(self):
+        result = core.back()
+        if result is None:
+            return result
+        else:
+            result.to_json()
+
 
 api.add_resource(LikeDestination, '/like_destination')
 api.add_resource(UnlikeDestination, '/unlike_destination')
@@ -71,6 +79,7 @@ api.add_resource(LikeHotel, '/like_hotel')
 api.add_resource(UnlikeHotel, '/unlike_hotel')
 api.add_resource(CompleteBooking, '/complete_booking')
 api.add_resource(AddBookingToFavorites, '/add_booking_to_favorites')
+api.add_resource(Back, '/back')
 
 
 if __name__ == '__main__':
