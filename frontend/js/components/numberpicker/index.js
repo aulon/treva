@@ -7,13 +7,14 @@ import React, { Component } from 'react';
 import { View, Text, Picker, StyleSheet } from 'react-native';
 
 class MyPicker extends Component {
-	constructor() {
+	constructor(props) {
 		super();
 		this.state = {user: ''};
-	}
 
-	updateUser(user) {
-		this.setState({ user: user });
+		this.updateUser = (user) => {
+			this.setState({ user: user });
+
+		};
 	}
 
 	render() {

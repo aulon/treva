@@ -11,6 +11,7 @@ import styles from "./styles";
 import MyDatePicker from "../datepicker";
 import MyPicker from "../numberpicker";
 import Swipe from "../swipe";
+import AirportPicker from "../airportpicker/index";
 
 const launchscreenBg = require("../../../img/launchscreen-bg.png");
 const launchscreenLogo = require("../../../img/logo-kitchen-sink.png");
@@ -51,19 +52,21 @@ class Start extends Component {
 						}}
 					>
 						<Content padder style={{ paddingTop: 20, height: 180 }}>
+							{/*<Content padder>*/}
+								<Text style={{paddingTop: 10, borderBottomWidth: 0, alignSelf: 'center'}}>Pick Your Point of Origin</Text>
+								<AirportPicker/>
+								{/*<Item disabled>*/}
+									{/*<Input disabled placeholder="Barcelona-El Prat Airport, Barcelona, ES" />*/}
+									{/*/!*<IconNB name="ios-information-circle" />*!/*/}
+								{/*</Item>*/}
+							{/*</Content>*/}
 							<Content padder>
-								<Item disabled>
-									<Input disabled placeholder="Barcelona-El Prat Airport, Barcelona, ES" />
-									{/*<IconNB name="ios-information-circle" />*/}
-								</Item>
-							</Content>
-							<Content padder>
-								<Text style={{paddingTop: 10, borderBottomWidth: 0}}>Start Date</Text><MyDatePicker />
-								<Text style={{paddingTop: 10, borderBottomWidth: 0}}>End Date</Text><MyDatePicker />
-								<Text style={{paddingTop: 10, borderBottomWidth: 0}}>Number of People</Text>
-								<Text style={{paddingTop: 10, borderBottomWidth: 0}}>Number of People</Text>
-								<Text style={{paddingTop: 10, borderBottomWidth: 0}}>Number of People</Text>
-								<Text style={{paddingTop: 10, borderBottomWidth: 0}}>Number of People</Text>
+								{/*<Text style={{paddingTop: 10, borderBottomWidth: 0}}>Start Date</Text><MyDatePicker />*/}
+								{/*<Text style={{paddingTop: 10, borderBottomWidth: 0}}>End Date</Text><MyDatePicker />*/}
+								{/*<Text style={{paddingTop: 10, borderBottomWidth: 0}}>Number of People</Text>*/}
+								{/*<Text style={{paddingTop: 10, borderBottomWidth: 0}}>Number of People</Text>*/}
+								{/*<Text style={{paddingTop: 10, borderBottomWidth: 0}}>Number of People</Text>*/}
+								{/*<Text style={{paddingTop: 10, borderBottomWidth: 0}}>Number of People</Text>*/}
 								<Text style={{paddingTop: 10, borderBottomWidth: 0}}>Number of People</Text><MyPicker />
 								<Text style={{paddingTop: 10, borderBottomWidth: 0}}>End Date</Text><MyDatePicker />
 							</Content>
@@ -75,7 +78,7 @@ class Start extends Component {
 						<Content padder style={{ paddingTop: 10 }}>
 							{/*<Button block info style={styles.mb15}><Text>Info</Text></Button>*/}
 							<Button block primary style={styles.mb15}
-									onPress={() => this.props.navigation.navigate("Swipe")}>
+									onPress={() => this.props.navigation.navigate("Loading")}>
 									{/*style={{ backgroundColor: "#c58bc5", alignSelf: "center" }}*/}
 									{/*onPress={() => this.props.navigation.navigate("Start")}*/}
 								<Text>Trevaswipe</Text>
