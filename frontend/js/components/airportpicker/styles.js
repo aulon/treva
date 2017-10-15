@@ -8,12 +8,12 @@ const { StyleSheet } = React;
 
 export default {
 	Picker: {
-		// height: 120,
+		height: 120,
 		// alignSelf: 'center',
 	},
 
 	item: {
-		// fontSize: 10,
-		// height: 30
+		fontSize: 10,
+		height: 30
 	}
 };

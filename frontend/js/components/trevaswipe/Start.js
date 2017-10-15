@@ -12,6 +12,7 @@ import MyDatePicker from "../datepicker";
 import MyPicker from "../numberpicker";
 import Swipe from "../swipe";
 import AirportPicker from "../airportpicker/index";
+import NumberPicker from "../numberpicker/index";
 
 const launchscreenBg = require("../../../img/launchscreen-bg.png");
 const launchscreenLogo = require("../../../img/logo-kitchen-sink.png");
@@ -65,17 +66,9 @@ class Start extends Component {
 								<Text style={{paddingTop: 10, borderBottomWidth: 0}}>Start Date</Text><MyDatePicker />
 								<Text style={{paddingTop: 10, borderBottomWidth: 0}}>End Date</Text><MyDatePicker />
 								{/*<Text style={{paddingTop: 10, borderBottomWidth: 0}}>Number of People</Text>*/}
-								{/*<Text style={{paddingTop: 10, borderBottomWidth: 0}}>Number of People</Text>*/}
-								{/*<Text style={{paddingTop: 10, borderBottomWidth: 0}}>Number of People</Text>*/}
-								{/*<Text style={{paddingTop: 10, borderBottomWidth: 0}}>Number of People</Text>*/}
-								{/*<Text style={{paddingTop: 10, borderBottomWidth: 0}}>Number of People</Text><MyPicker />*/}
+								<Text style={{paddingTop: 10, borderBottomWidth: 0}}>Number of People</Text><NumberPicker />
 								{/*<Text style={{paddingTop: 10, borderBottomWidth: 0}}>End Date</Text><MyDatePicker />*/}
 							</Content>
-						{/*</Content>*/}
-						{/*<H3 style={styles.text}>The World</H3>*/}
-						{/*<View style={{ marginTop: 8 }} />*/}
-						{/*<H3 style={styles.text}>at the swipe of a finger</H3>*/}
-						{/*<View style={{ marginTop: 8 }} />*/}
 						<Content padder style={{ paddingTop: 10 }}>
 							{/*<Button block info style={styles.mb15}><Text>Info</Text></Button>*/}
 							<Button block primary style={styles.mb15}
