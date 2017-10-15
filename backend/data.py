@@ -24,11 +24,10 @@ class Flight(Serializable):
         self.start_flight_date = 0
 
 class Hotel(Serializable):
-    def __init__(self, name, review, price, facilities):
+    def __init__(self, name, review, price):
         self.name = name
         self.review = review
         self.price = price
-        self.facilities = facilities
 
 
 class Booking(Serializable):
