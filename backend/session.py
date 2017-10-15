@@ -20,8 +20,8 @@ class Session:
 
         self.data_grabber = DataGrabber(self.country, self.city, trip_length, min_date, max_date)
         self.destinations = self.data_grabber.get_destinations()
-        self.flights = self.data_grabber.get_flights()
-        self.hotels = self.data_grabber.get_hotels()
+        self.flights = self.data_grabber.get_flights(self.country, self.city)
+        self.hotels = self.data_grabber.get_hotels(self.country, self.city)
 
     def back(self):
         if len(self.suggested_hotels):
@@ -44,7 +44,7 @@ class Session:
             # first, generate
             self.suggested_destinations.append((self.destinations[-1], []))
         else:
-            # fix reason
+            # TODO fix reason
             pass
         return self.suggested_destinations[-1][0]
 
@@ -53,7 +53,7 @@ class Session:
             # first, generate random
             self.suggested_flights.append((self.flights[-1], []))
         else:
-            # fix reason
+            # TODO fix reason
             pass
         return self.suggested_flights[-1][0]
 
@@ -62,7 +62,7 @@ class Session:
             # first, generate random
             self.suggested_hotels.append((self.hotels[-1], []))
         else:
-            # fix reason
+            # TODO fix reason
             pass
         return self.suggested_hotels[-1][0]
 

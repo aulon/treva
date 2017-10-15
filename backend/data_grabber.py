@@ -1,6 +1,6 @@
 from backend.sky_client import get_flights, get_trips
 from backend.data import *
-
+from backend.places_client import get_hotels
 
 class DataGrabber:
     def __init__(self, country, city, trip_length, min_date, max_date):
@@ -24,7 +24,7 @@ class DataGrabber:
                     h.price *= self.trip_length
                     if h.price >= max_hotel_price:
                         max_hotel_price = h.price
-                    elif h.price <= min_hotel_price:
+                    if h.price <= min_hotel_price:
                         min_hotel_price = h.price
 
                 if max_hotel_price:
@@ -51,4 +51,4 @@ class DataGrabber:
         return [Flight("lufthansa", 1, "euro", 22.1)]
 
     def _query_hotels(self, dest_country, dest_city):
-        return [Hotel("Hotel", 4.2, 100, "wifi, bjs")]
+        return get_hotels(dest_country, dest_city)
