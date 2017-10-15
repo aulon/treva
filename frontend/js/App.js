@@ -80,7 +80,7 @@ import AdvSegment from "./components/segment/segmentTab";
 import SimpleDeck from "./components/deckswiper/simple";
 import AdvancedDeck from "./components/deckswiper/advanced";
 import Start from "./components/trevaswipe/Start";
-import MyDatePicker from "./components/datepicker";
+import MyDatePicker from "./components/datepicker/index";
 
 const AppNavigator = StackNavigator(
     {
