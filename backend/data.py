@@ -21,14 +21,15 @@ class Flight(Serializable):
         self.price = price
         self.currency = currency
         self.avg_time = avg_time
-
+        self.start_flight_date = 0
 
 class Hotel(Serializable):
-    def __init__(self, name, review, price, facilities):
+    def __init__(self, name, review, price, facilities, image_url):
         self.name = name
         self.review = review
         self.price = price
         self.facilities = facilities
+        self.image_url = image_url
 
 
 class Booking(Serializable):

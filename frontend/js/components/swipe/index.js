@@ -1,3 +1,7 @@
+/*
+ * © 2017 Tal Globus. All Rights Reserved.
+ */
+
 import React, { Component } from "react";
 import { Image, View, StatusBar } from "react-native";
 
@@ -8,7 +12,7 @@ import styles from "./styles";
 const launchscreenBg = require("../../../img/launchscreen-bg.png");
 const launchscreenLogo = require("../../../img/logo-kitchen-sink.png");
 
-class Home extends Component {
+class Swipe extends Component {
 	// eslint-disable-line
 
 	render() {
@@ -34,7 +38,7 @@ class Home extends Component {
 					<View style={{ marginBottom: 80 }}>
 						<Button
 							style={{ backgroundColor: "#5cb85c", alignSelf: "center" }}
-							onPress={() => this.props.navigation.navigate("Start")}
+							onPress={() => this.props.navigation.navigate("Swipe")}
 						>
 							<Text>Lets Go!</Text>
 						</Button>
@@ -45,4 +49,4 @@ class Home extends Component {
 	}
 }
 
-export default Home;
+export default Swipe;

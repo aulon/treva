@@ -14,10 +14,12 @@ class NewTrip(Resource):
         max_d = list(map(int, request.args.get('max_date').split("-")))
 
         return core.new_trip(
-                             n_people=request.args.get('n_people'),
-                             trip_length_days=request.args.get('trip_length_days'),
+                             n_people=int(request.args.get('n_people')),
+                             trip_length_days=int(request.args.get('trip_length_days')),
                              min_date=date(min_d[0], min_d[1], min_d[2]),
-                             max_date=date(max_d[0], max_d[1], max_d[2])).to_json()
+                             max_date=date(max_d[0], max_d[1], max_d[2]),
+                             departure_country=request.args.get('departure_country'),
+                             departure_city=request.args.get('departure_city')).to_json()
 
 
 class UnlikeDestination(Resource):

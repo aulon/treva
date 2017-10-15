@@ -4,16 +4,6 @@ from datetime import date, timedelta
 import requests
 import json
 
-
-class QueryFlight:
-    def __init__(self):
-        self.start_flight_date = 0
-        self.airline = 0
-        self.price = 0
-        self.average_time = 0
-
-
-
 class SkyClient:
 
     def __init__(self, apikey="ha289870274395207127444935114707"):

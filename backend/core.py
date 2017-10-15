@@ -1,6 +1,7 @@
 from datetime import date
 from backend.data import *
 from backend.session import Session
+from backend.sky_client import get_flights, get_trips
 
 
 class Core:
@@ -12,8 +13,8 @@ class Core:
         self.completed_bookings = []
         self.session = None
 
-    def new_trip(self, trip_length_days: int, n_people: int, min_date: date, max_date: date) -> Destination:
-        self.session = Session(trip_length_days, n_people, min_date, max_date)
+    def new_trip(self, trip_length_days: int, n_people: int, min_date: date, max_date: date, departure_country: str, departure_city: str) -> Destination:
+        self.session = Session(trip_length_days, n_people, min_date, max_date, departure_country, departure_city)
         return self.session.new_destination()
 
     def unlike_destination(self, reason: str) -> Destination:
