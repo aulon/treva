@@ -82,6 +82,8 @@ import AdvancedDeck from "./components/deckswiper/advanced";
 import Start from "./components/trevaswipe/Start";
 import MyDatePicker from "./components/datepicker/index";
 import Swipe from "./components/swipe";
+import AirportPicker from "./components/airportpicker/index";
+import Loading from "./components/loading";
 
 const AppNavigator = StackNavigator(
     {
@@ -174,7 +176,9 @@ const AppNavigator = StackNavigator(
         Start: { screen: Start },
 		Home: { screen: Home },
 		MyDatePicker: { screen: MyDatePicker },
-		Swipe: { screen: Swipe }
+		Swipe: { screen: Swipe },
+		AirportPicker: { screen: AirportPicker },
+		Loading: { screen: Loading }
     },
     {
         initialRouteName: "Home",

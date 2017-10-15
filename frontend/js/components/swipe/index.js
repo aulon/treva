@@ -3,47 +3,115 @@
  */
 
 import React, { Component } from "react";
-import { Image, View, StatusBar } from "react-native";
+import { Image, View } from "react-native";
 
-import { Container, Button, H3, Text, Header, Title, Body, Left, Right } from "native-base";
+import {
+	Container,
+	Header,
+	Title,
+	Button,
+	IconNB,
+	DeckSwiper,
+	Card,
+	CardItem,
+	Icon,
+	Thumbnail,
+	Text,
+	Left,
+	Right,
+	Body,
+	Content,
+} from "native-base";
 
 import styles from "./styles";
 
-const launchscreenBg = require("../../../img/launchscreen-bg.png");
-const launchscreenLogo = require("../../../img/logo-kitchen-sink.png");
+const cardOne = require("../../../img/swiper-1.png");
+const cardTwo = require("../../../img/swiper-2.png");
+const cardThree = require("../../../img/swiper-3.png");
+const cardFour = require("../../../img/swiper-4.png");
+
+const cards = [
+	{
+		text: "Card One",
+		name: "One",
+		image: cardOne,
+	},
+	{
+		text: "Card Two",
+		name: "Two",
+		image: cardTwo,
+	},
+	{
+		text: "Card Three",
+		name: "Three",
+		image: cardThree,
+	},
+	{
+		text: "Card Four",
+		name: "Four",
+		image: cardFour,
+	},
+];
 
 class Swipe extends Component {
 	// eslint-disable-line
 
 	render() {
 		return (
-			<Container>
-				<StatusBar barStyle="light-content" />
-				<Image source={launchscreenBg} style={styles.imageContainer}>
-					<View style={styles.logoContainer}>
-						<Image source={launchscreenLogo} style={styles.logo} />
-					</View>
-					<View
-						style={{
-							alignItems: "center",
-							marginBottom: 50,
-							backgroundColor: "transparent",
-						}}
-					>
-						<H3 style={styles.text}>The World</H3>
-						<View style={{ marginTop: 8 }} />
-						<H3 style={styles.text}>at the swipe of a finger</H3>
-						<View style={{ marginTop: 8 }} />
-					</View>
-					<View style={{ marginBottom: 80 }}>
-						<Button
-							style={{ backgroundColor: "#5cb85c", alignSelf: "center" }}
-							onPress={() => this.props.navigation.navigate("Swipe")}
-						>
-							<Text>Lets Go!</Text>
+			<Container style={styles.container}>
+				<Header>
+					<Left>
+						<Button transparent onPress={() => this.props.navigation.goBack()}>
+							<Icon name="arrow-back" />
 						</Button>
-					</View>
-				</Image>
+					</Left>
+					<Body>
+					<Title>Simple Deck Swiper</Title>
+					</Body>
+					<Right />
+				</Header>
+
+				<View style={{ flex: 1, padding: 12 }}>
+					<DeckSwiper
+						dataSource={cards}
+						looping={false}
+						renderEmpty={() =>
+							<View>
+								<Text>Over</Text>
+							</View>}
+						renderItem={item =>
+							<Card style={{ elevation: 3 }}>
+								<CardItem>
+									<Left>
+										<Thumbnail source={item.image} />
+										<Body>
+										<Text>
+											{item.text}
+										</Text>
+										<Text note>NativeBase</Text>
+										</Body>
+									</Left>
+								</CardItem>
+								<CardItem cardBody>
+									<Image
+										style={{
+											resizeMode: "cover",
+											width: null,
+											flex: 1,
+											height: 300,
+										}}
+										source={item.image}
+									/>
+								</CardItem>
+								<CardItem>
+									<IconNB name={"ios-heart"} style={{ color: "#ED4A6A" }} />
+									<Text>
+										{item.name}
+									</Text>
+								</CardItem>
+							</Card>}
+					/>
+				</View>
 			</Container>
 		);
 	}
