@@ -43,3 +43,6 @@ class Core:
         self.favorite_bookings.append(self.session.complete_booking())
         self.session.reset_booking()
         return self.session.new_destination()
+
+    def back(self):
+        return self.session.back()

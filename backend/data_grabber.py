@@ -1,6 +1,6 @@
 from backend.sky_client import get_flights, get_trips
 from backend.data import *
-from backend.places_client import get_hotels
+from backend.places_client import get_hotels_and_city_image
 
 class DataGrabber:
     def __init__(self, country, city, trip_length, min_date, max_date):
@@ -16,7 +16,7 @@ class DataGrabber:
         for country, cities in self.destinations_dataset.items():
             for city, description in cities.items():
                 flights = self._query_flights(country, city)
-                hotels = self._query_hotels(country, city)
+                hotels, city_img = self._query_hotels(country, city)
                 min_hotel_price = 2 ** 31
                 max_hotel_price = 0
 
@@ -33,12 +33,13 @@ class DataGrabber:
 
                 description["flights"] = flights
                 description["hotels"] = hotels
+                description["img"] = city_img
 
     def get_destinations(self):
         destinations = []
         for country, cities in self.destinations_dataset.items():
             for city, description in cities.items():
-                destinations.append(Destination(country, city, description["price_range"][0], description["price_range"][1], 'img://dummy.url'))
+                destinations.append(Destination(country, city, description["price_range"][0], description["price_range"][1], description["img"]))
         return destinations
 
     def get_flights(self, country, city):
@@ -51,4 +52,4 @@ class DataGrabber:
         return [Flight("lufthansa", 1, "euro", 22.1)]
 
     def _query_hotels(self, dest_country, dest_city):
-        return get_hotels(dest_country, dest_city)
+        return get_hotels_and_city_image(dest_country, dest_city)

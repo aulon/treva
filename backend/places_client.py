@@ -23,18 +23,22 @@ def __get_hotels(lat: float, lng: float):
     photo_reference = j['results'][0]['photos'][0]['photo_reference']
 
     for a in j['results']:
-        img = a['photos'][0]['photo_reference']
-        img_helper = 'https://maps.googleapis.com/maps/api/place/photo?key=' + api_key + '&photoreference=' \
-                     + img + '&maxwidth=1600'
-        try:
-            l.append(Hotel(a['name'], a['rating'], 50, 'wifi', img_helper))
-        except:
-            l.append(Hotel(a['name'], 0, 50, 'wifi', img_helper))
 
-    return (l, photo_reference)
+        try:
+            img = a['photos'][0]['photo_reference']
+            img_helper = 'https://maps.googleapis.com/maps/api/place/photo?key=' + api_key + '&photoreference=' \
+                         + img + '&maxwidth=1600'
+            l.append(Hotel(a['name'], a['rating'], 50, img_helper))
+        except:
+            img_helper = 'https://www.iconexperience.com/_img/g_collection_png/standard/512x512/hotel.png'
+            l.append(Hotel(a['name'], 0, 50, img_helper))
+
+    img_helper_city = 'https://maps.googleapis.com/maps/api/place/photo?key=' + api_key + '&photoreference=' \
+                 + photo_reference + '&maxwidth=1600'
+    return (l, img_helper_city)
 
 def get_hotels_and_city_image(country, city):
     lat, lng = __get_location(city, country)
     return __get_hotels(lat, lng)
 
-get_hotels_and_city_image('Spain', 'Barcelona')
+# get_hotels_and_city_image('Spain', 'Barcelona')

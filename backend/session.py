@@ -29,18 +29,19 @@ class Session:
             if len(self.suggested_hotels):
                 self.hotels += self.suggested_hotels[-1][1]
                 self.suggested_hotels[-1][1] = []
-                return
+                return self.suggested_hotels[-1][0]
         if len(self.suggested_flights):
             self.suggested_flights.pop()
             if len(self.suggested_flights):
                 self.flights += self.suggested_flights[-1][1]
                 self.suggested_flights[-1][1] = []
-                return
+                return self.suggested_flights[-1][0]
         if len(self.suggested_destinations):
             self.suggested_destinations.pop()
             if len(self.suggested_destinations):
                 self.destinations += self.suggested_destinations[-1][1]
                 self.suggested_destinations[-1][1] = []
+                return self.suggested_destinations[-1][0]
 
     def new_destination(self, reason: str=None) -> Destination:
         if reason:
